@@ -1,0 +1,28 @@
+{
+  "name": "es-nextgen",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/megoth/es-nextgen.git"
+  },
+  "author": "Arne Hassel <arne.hassel@gmail.com> (http://icanhasweb.net/)",
+  "license": "None",
+  "description": "An introduction to transpilers, to be held at Ifi March 5th, 2016",
+  "keywords": [
+    "JavaScript",
+    "Introduction",
+    "Transpilation",
+    "Transpilers",
+    "ES6",
+    "ES7"
+  ],
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-http-server": "0.0.5",
+    "grunt-shell": "^1.0.1",
+    "load-grunt-config": "^0.12.0",
+    "load-grunt-tasks": "^0.6.0"
+  }
+}
