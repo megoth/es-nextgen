@@ -40,6 +40,55 @@ console.log(`test ${a}`);</code></pre>
   }
 };</code></pre>
 
+<h2 id="setting-up-support-for-modules-and-other-es2015-features-">Setting up support for modules (and other ES2015 features)</h2>
+<pre><code class="language-bash">npm install babel-loader babel-core babel-preset-es2015</code></pre>
+
+<p>Add the following snippet to <em>webpack.config.js</em>:</p>
+<pre><code class="language-javascript">module: {
+  loaders: [
+    {
+      test: /\.js?$/,
+      exclude: /(node_modules|bower_components)/,
+      loader: 'babel',
+      query: {
+        presets: ['es2015']
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="setting-up-multiple-entries">Setting up multiple entries</h2>
+<p>Change entry and output in <em>webpack.config.js</em>:</p>
+<pre><code class="language-javascript">entry: {
+  name: 'path-to-source'
+},
+output: {
+  path: 'output-directory',
+  filename: '[name].js'
+}</code></pre>
+
+<h2 id="adding-loaders">Adding loaders</h2>
+<p>Add <a href="https://webpack.github.io/docs/list-of-loaders.html">the loader you need</a>, e.g. the style-loader and css-loader (for loading CSS-files):</p>
+<pre><code class="language-bash">npm install json-loader css-loader</code></pre>
+
+<p>Add the modules-property into <em>webpack.config.js</em>:</p>
+<pre><code class="language-javascript">module: {
+  loaders: [
+    {
+      test: /\.js?$/,
+      exclude: /(node_modules|bower_components)/,
+      loader: 'babel',
+      query: {
+        presets: ['es2015']
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="adding-source-map">Adding source-map</h2>
+<p>Add the following snippet to <em>webpack.config.js</em>:</p>
+<pre><code class="language-javascript">devtool: "source-map"</code></pre>
+
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://webpack.github.io/docs/tutorials/getting-started/">tutorials/getting-started</a></li>
