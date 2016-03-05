@@ -24,38 +24,39 @@
 <pre><code class="language-javascript">var a = 42;
 console.log(`test ${a}`);</code></pre>
 
-<p>Compile it:</p>
+<p>(At this point, you can compile it directly with webpack-cli)</p>
 <pre><code class="language-bash">webpack lib/main.js bundle.js</code></pre>
 
-<p>Set up <em>index.html</em>:</p>
-<pre><code class="language-html">&lt;!doctype html>
-  &lt;script src="bundle.js">&lt;/script></code></pre>
+<p>To enable full ES6-support (such as modules), install babel:</p>
+<pre><code class="language-bash">npm install babel-loader babel-core babel-preset-es2015</code></pre>
 
-<p>For convenience, set up <em>webpack.config.js</em>:</p>
+<p>Set up <em>webpack.config.js</em>:</p>
 <pre><code class="language-javascript">module.exports = {
   entry: './lib/main.js',
   output: {
     path: __dirname,
     filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
   }
 };</code></pre>
 
-<h2 id="setting-up-support-for-modules-and-other-es2015-features-">Setting up support for modules (and other ES2015 features)</h2>
-<pre><code class="language-bash">npm install babel-loader babel-core babel-preset-es2015</code></pre>
+<p>Set up <em>index.html</em>:</p>
+<pre><code class="language-html">&lt;!doctype html>
+  &lt;script src="bundle.js">&lt;/script></code></pre>
 
-<p>Add the following snippet to <em>webpack.config.js</em>:</p>
-<pre><code class="language-javascript">module: {
-  loaders: [
-    {
-      test: /\.js?$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel',
-      query: {
-        presets: ['es2015']
-      }
-    }
-  ]
-}</code></pre>
+<p>Compile it:</p>
+<pre><code class="language-bash">webpack</code></pre>
 
 <h2 id="setting-up-multiple-entries">Setting up multiple entries</h2>
 <p>Change entry and output in <em>webpack.config.js</em>:</p>
@@ -67,11 +68,11 @@ output: {
   filename: '[name].js'
 }</code></pre>
 
-<h2 id="adding-loaders">Adding loaders</h2>
+<h2 id="adding-more-loaders">Adding more loaders</h2>
 <p>Add <a href="https://webpack.github.io/docs/list-of-loaders.html">the loader you need</a>, e.g. the style-loader and css-loader (for loading CSS-files):</p>
 <pre><code class="language-bash">npm install json-loader css-loader</code></pre>
 
-<p>Add the modules-property into <em>webpack.config.js</em>:</p>
+<p>Extend the modules-property in <em>webpack.config.js</em>:</p>
 <pre><code class="language-javascript">module: {
   loaders: [
     {
