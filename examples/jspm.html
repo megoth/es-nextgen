@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title></title><meta name="author"><meta http-equiv="Content-Language" content="en"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="/css/examples.css" media="all" rel="stylesheet" type="text/css"><script src="/scripts/html5shiv.js"></script></head><body><div role="main"><h1>Setting up jspm.io</h1><p>Install jspm CLI:</p>
+<pre><code class="language-bash">npm install jspm -g</code></pre>
+
+<p>Create your project:</p>
+<pre><code class="language-bash">mkdir jspm-demo && cd jspm-demo</code></pre>
+
+<p>Set up jspm:</p>
+<pre><code class="language-bash">jspm init</code></pre>
+
+<p>Set up <em>lib/main.js</em>:</p>
+<pre><code class="language-javascript">var a = 42;
+console.log(`test ${a}`);</code></pre>
+
+<p>Set up <em>index.html</em>:</p>
+<pre><code class="language-html">&lt;!doctype html>
+  &lt;script src="jspm_packages/system.js">&lt;/script>
+  &lt;script src="config.js">&lt;/script>
+  &lt;script>
+    System.import('lib/main.js');
+  &lt;/script></code></pre>
+
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="http://jspm.io/docs/getting-started.html">Getting Started | JSPM</a></li>
+</ul>
+<p><a href="javascript:history.go(-1)">Back to presentation</a></p></div><script src="/scripts/examples.js"></script></body></html>

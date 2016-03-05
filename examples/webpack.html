@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title></title><meta name="author"><meta http-equiv="Content-Language" content="en"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link href="/css/examples.css" media="all" rel="stylesheet" type="text/css"><script src="/scripts/html5shiv.js"></script></head><body><div role="main"><h1>Setting up webpack</h1><p>Install webpack CLI:</p>
+<pre><code class="language-bash">npm install webpack -g</code></pre>
+
+<p>Create your project and initialize npm:</p>
+<pre><code class="language-bash">mkdir webpack-demo && cd webpack-demo</code></pre>
+
+<p>Set up <em>lib/main.js</em>:</p>
+<pre><code class="language-javascript">var a = 42;
+console.log(`test ${a}`);</code></pre>
+
+<p>Compile it:</p>
+<pre><code class="language-bash">webpack lib/main.js bundle.js</code></pre>
+
+<p>Set up <em>index.html</em>:</p>
+<pre><code class="language-html">&lt;!doctype html>
+  &lt;script src="bundle.js">&lt;/script></code></pre>
+
+<p>For convenience, set up <em>webpack.config.js</em>:</p>
+<pre><code class="language-javascript">module.exports = {
+  entry: './lib/main.js',
+  output: {
+    path: __dirname,
+    filename: 'bundle.js'
+  }
+};</code></pre>
+
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://webpack.github.io/docs/tutorials/getting-started/">tutorials/getting-started</a></li>
+</ul>
+<p><a href="javascript:history.go(-1)">Back to presentation</a></p></div><script src="/scripts/examples.js"></script></body></html>
